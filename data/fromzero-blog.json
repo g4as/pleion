@@ -1,0 +1,23 @@
+{
+  "posts": [
+    {
+      "date": "2026-08-15",
+      "title": "First Devblog?!",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "For all fellow turkish people sadly my free cursor subscription has a usage limit thats why there will be only English in this blog. Lets get back to the point. The game is going to be A shooter / bullet hell and lot of things Im planning to add characters and their skills from my favorite series and animes  Well first attack skill looks cool i always admired katarina mains. Also the dummy from my old project :D"
+        },
+        {
+          "type": "image",
+          "src": "attackripper.gif",
+          "alt": "No internet :D"
+        },
+        {
+          "type": "text",
+          "content": "Well i have to go. I'm hungry. See ya -flugel."
+        }
+      ]
+    }
+  ]
+}

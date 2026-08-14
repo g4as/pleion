@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pleion Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/jpg" href="mommy.jpg">
+</head>
+<body>
+
+  <!-- Decorative blobs -->
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+  <div class="blob blob-3" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <button type="button" class="logo" id="pleionLogo">Pleion Games</button>
+
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links">
+        <a href="#home" data-i18n="nav.home">Ana Sayfa</a>
+        <a href="#games" data-i18n="nav.games">Oyunlar</a>
+        <a href="#about" data-i18n="nav.about">Hakkimizda</a>
+        <a href="#contact" data-i18n="nav.contact">Iletisim</a>
+        <button class="lang-toggle" aria-label="Switch language">
+          <span class="lang-active">TR</span> | <span class="lang-inactive">EN</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section id="home" class="hero section">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1 data-i18n="hero.title">oyun oyundur dimi?</h1>
+          <p data-i18n="hero.subtitle">az is cok laf gercek bir pleion ruhu..</p>
+          <a href="#games" class="btn btn-primary" data-i18n="hero.cta">Oyunlara Bak</a>
+        </div>
+        <div class="hero-illustration" id="heroFood" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- Games -->
+    <section id="games" class="games section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="games.title">Oyunlar</h2>
+        <p class="section-subtitle" data-i18n="games.subtitle">Simdilik 1 oyun projemiz var bitirince digerlerinede baslicaz sabir biraz..</p>
+
+        <div class="games-grid">
+          <a href="fromzero/index.html" class="game-card-link">
+            <article class="game-card game-card--featured">
+              <div class="game-card-img game-card-img-1">
+                <img src="fromzero.gif" alt="From ZeRo" class="game-logo">
+                <span class="badge badge-hot" data-i18n="games.featured">Yeni</span>
+                <span class="badge badge-blog" data-i18n="games.game1.blogHint">Dev Blog &rarr;</span>
+              </div>
+              <div class="game-card-body">
+                <h3 data-i18n="games.game1.title">From ZeRo</h3>
+                <p data-i18n="games.game1.desc">Dusmanlar uzerine geliyor peki neden? kimin umrunda ez gec!</p>
+              </div>
+            </article>
+          </a>
+
+          <article class="game-card game-card--mystery">
+            <div class="game-card-img game-card-img-2">
+              <div class="mystery-clouds" aria-hidden="true">
+                <span class="cloud cloud-1"></span>
+                <span class="cloud cloud-2"></span>
+                <span class="cloud cloud-3"></span>
+              </div>
+              <span class="badge badge-mystery" data-i18n="games.mystery">???</span>
+            </div>
+            <div class="game-card-body game-card-body--mystery">
+              <h3 data-i18n="games.game2.title">???</h3>
+              <p data-i18n="games.game2.desc">yakinda... bi sey gelio ama simdilik sus. izle.</p>
+            </div>
+          </article>
+
+          <article class="game-card game-card--mystery">
+            <div class="game-card-img game-card-img-3">
+              <div class="mystery-clouds" aria-hidden="true">
+                <span class="cloud cloud-1"></span>
+                <span class="cloud cloud-2"></span>
+                <span class="cloud cloud-3"></span>
+              </div>
+              <span class="badge badge-mystery" data-i18n="games.mystery">???</span>
+            </div>
+            <div class="game-card-body game-card-body--mystery">
+              <h3 data-i18n="games.game3.title">???</h3>
+              <p data-i18n="games.game3.desc">gizli proje. ne oldugunu bilen yok. stay tuned.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about section">
+      <div class="container about-inner">
+        <div class="about-text">
+          <h2 class="section-title" data-i18n="about.title">Biz Kimiz</h2>
+          <p data-i18n-html="about.p1">Birileri degiliz.. ama olmak icin elimizden geleni yapmaya calisiyoruz umarim bir gun <svg class="inline-heart" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FF6B9D" stroke="#2D3436" stroke-width="1.5"/></svg><br>not: kedim kayboldu gordun mu?</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-number">1</span>
+            <span class="stat-label" data-i18n="about.statGames">Oyun</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number stat-number--scramble" id="statPlayers">?</span>
+            <span class="stat-label" data-i18n="about.statPlayers">Oyuncu</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">2026</span>
+            <span class="stat-label" data-i18n="about.statYear">Kurulus</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact section">
+      <div class="container contact-inner">
+        <div class="contact-info">
+          <h2 class="section-title" data-i18n="contact.title">Iletisim</h2>
+          <p data-i18n="contact.subtitle">annem yabancilarla konusma dedi ama istersen mail atabilirsin</p>
+          <div class="contact-links">
+            <a href="mailto:hello@pleiongames.com" class="contact-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+              hello@pleiongames.com
+            </a>
+            <a href="https://instagram.com/pleiongames" class="contact-link" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+              @pleiongames
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name" data-i18n="contact.name">Ismin</label>
+              <input type="text" id="name" name="name" required disabled>
+            </div>
+            <div class="form-group">
+              <label for="email" data-i18n="contact.email">E-posta</label>
+              <input type="email" id="email" name="email" required disabled>
+            </div>
+            <div class="form-group">
+              <label for="message" data-i18n="contact.message">Ne Yazcan</label>
+              <textarea id="message" name="message" rows="4" required disabled></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" data-i18n="contact.send" disabled>Gonder</button>
+            <p class="form-success" id="formSuccess" hidden data-i18n="contact.success">gitti mesajin! en kisa surede doneriz.</p>
+          </form>
+          <div class="form-x-overlay" aria-hidden="true">
+            <svg class="form-x-mark" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="30" y1="30" x2="170" y2="170" stroke="#FF6B9D" stroke-width="28" stroke-linecap="round"/>
+              <line x1="170" y1="30" x2="30" y2="170" stroke="#FF6B9D" stroke-width="28" stroke-linecap="round"/>
+              <line x1="30" y1="30" x2="170" y2="170" stroke="#2D3436" stroke-width="8" stroke-linecap="round"/>
+              <line x1="170" y1="30" x2="30" y2="170" stroke="#2D3436" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+            <p class="form-x-text" data-i18n="contact.nobody">burayi kim kullaniyor ki?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-slogan" data-i18n="footer.slogan">sosyal medyalarimiz</p>
+      <div class="footer-social" id="footerSocial">
+        <a href="#" class="runaway-x" aria-label="X">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://instagram.com/pleiongames" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 4 12 4 12 4s-7.5 0-9.4.4A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1C4.5 20 12 20 12 20s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        </a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Pleion Games. <span data-i18n="footer.rights">tum haklar sakli.</span></p>
+    </div>
+  </footer>
+
+  <script src="js/hero-foods.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
