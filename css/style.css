@@ -507,6 +507,38 @@ body {
   filter: brightness(0.4) saturate(0.3);
 }
 
+/* ===== GDevelop Extensions ===== */
+.extensions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 900px) and (min-width: 769px) {
+  .extensions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  background: var(--white);
+  color: var(--dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-github:hover {
+  transform: translateY(-3px);
+  background: var(--yellow);
+  box-shadow: 5px 5px 0 var(--dark);
+}
+
 /* ===== About ===== */
 .about-inner {
   display: flex;
@@ -848,7 +880,8 @@ body {
     width: 260px;
   }
 
-  .games-grid {
+  .games-grid,
+  .extensions-grid {
     grid-template-columns: 1fr;
   }
 

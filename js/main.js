@@ -4,6 +4,7 @@ const translations = {
   tr: {
     'nav.home': 'Ana Sayfa',
     'nav.games': 'Oyunlar',
+    'nav.extensions': 'Eklentiler',
     'nav.about': 'Hakkimizda',
     'nav.contact': 'Iletisim',
     'hero.title': 'oyun oyundur dimi?',
@@ -20,6 +21,9 @@ const translations = {
     'games.game2.desc': 'yakinda... bi sey gelio ama simdilik sus. izle.',
     'games.game3.title': '???',
     'games.game3.desc': 'gizli proje. ne oldugunu bilen yok. stay tuned.',
+    'extensions.title': 'GDevelop Eklentileri',
+    'extensions.subtitle': 'gdevelop eklentileri yapiyoruz. blog yok, githubda acik kaynak. sabir biraz..',
+    'extensions.github': 'GitHub',
     'about.title': 'Biz Kimiz',
     'about.p1': `Birileri degiliz.. ama olmak icin elimizden geleni yapmaya calisiyoruz umarim bir gun ${heartSvg}<br>not: kedim kayboldu gordun mu?`,
     'about.statGames': 'Oyun',
@@ -42,6 +46,7 @@ const translations = {
   en: {
     'nav.home': 'Home',
     'nav.games': 'Games',
+    'nav.extensions': 'Extensions',
     'nav.about': 'About',
     'nav.contact': 'Contact',
     'hero.title': 'a game is a game right?',
@@ -58,6 +63,9 @@ const translations = {
     'games.game2.desc': 'coming soon... something is cooking but we are not telling. watch.',
     'games.game3.title': '???',
     'games.game3.desc': 'secret project. nobody knows what it is. stay tuned.',
+    'extensions.title': 'GDevelop Extensions',
+    'extensions.subtitle': 'we make gdevelop extensions. no blog, open source on github. patience..',
+    'extensions.github': 'GitHub',
     'about.title': 'Who We Are',
     'about.p1': `we are not somebody yet.. but we try our best to become one someday ${heartSvg}<br>ps: my cat went missing, seen it?`,
     'about.statGames': 'Games',
@@ -98,6 +106,10 @@ function setLanguage(lang) {
     if (translations[lang][key]) {
       el.innerHTML = translations[lang][key];
     }
+  });
+
+  document.querySelectorAll('[data-tr][data-en]').forEach(el => {
+    el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-tr');
   });
 
   const active = document.querySelector('.lang-active');

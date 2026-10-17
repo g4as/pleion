@@ -15,7 +15,21 @@
         },
         {
           "type": "text",
-          "content": "Well i have to go. I'm hungry. See ya -flugel."
+          "content": "Well i have to go. I'm hungry. See ya -g4as."
+        }
+      ]
+    }, 
+    {
+      "date": "2026-10-17",
+      "title": "Hello from future",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "greetings! what i did in 3 months? Nothing. I was pretty busy in my life so i didnt really have the time for development I also lost the project files (Its was a huge loss as i remember i added like 5 different playable characters) Soo Project probably gonna be canceled. I mean the name was placeholder im not planing to make the games name from zero i have something in my mind but the problem is making a fighting game with A LOT of skills takes time Im not sure if i can make it. Soo yeah Im Archiveing this project for future Im planing to focus on Developing more extensions And assets So when i decided to make a game I will have a lot of insturments to begin. So thats All i guess Se ya later."
+        },
+        {
+          "type": "text",
+          "content": "-g4as"
         }
       ]
     }
