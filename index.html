@@ -61,51 +61,8 @@
         <h2 class="section-title" data-i18n="games.title">Oyunlar</h2>
         <p class="section-subtitle" data-i18n="games.subtitle">Simdilik 1 oyun projemiz var bitirince digerlerinede baslicaz sabir biraz..</p>
 
-        <div class="games-grid">
-          <a href="fromzero/index.html" class="game-card-link">
-            <article class="game-card game-card--featured">
-              <div class="game-card-img game-card-img-1">
-                <img src="fromzero.gif" alt="From ZeRo" class="game-logo">
-                <span class="badge badge-hot" data-i18n="games.featured">Yeni</span>
-                <span class="badge badge-blog" data-i18n="games.game1.blogHint">Dev Blog &rarr;</span>
-              </div>
-              <div class="game-card-body">
-                <h3 data-i18n="games.game1.title">From ZeRo</h3>
-                <p data-i18n="games.game1.desc">Dusmanlar uzerine geliyor peki neden? kimin umrunda ez gec!</p>
-              </div>
-            </article>
-          </a>
-
-          <article class="game-card game-card--mystery">
-            <div class="game-card-img game-card-img-2">
-              <div class="mystery-clouds" aria-hidden="true">
-                <span class="cloud cloud-1"></span>
-                <span class="cloud cloud-2"></span>
-                <span class="cloud cloud-3"></span>
-              </div>
-              <span class="badge badge-mystery" data-i18n="games.mystery">???</span>
-            </div>
-            <div class="game-card-body game-card-body--mystery">
-              <h3 data-i18n="games.game2.title">???</h3>
-              <p data-i18n="games.game2.desc">yakinda... bi sey gelio ama simdilik sus. izle.</p>
-            </div>
-          </article>
-
-          <article class="game-card game-card--mystery">
-            <div class="game-card-img game-card-img-3">
-              <div class="mystery-clouds" aria-hidden="true">
-                <span class="cloud cloud-1"></span>
-                <span class="cloud cloud-2"></span>
-                <span class="cloud cloud-3"></span>
-              </div>
-              <span class="badge badge-mystery" data-i18n="games.mystery">???</span>
-            </div>
-            <div class="game-card-body game-card-body--mystery">
-              <h3 data-i18n="games.game3.title">???</h3>
-              <p data-i18n="games.game3.desc">gizli proje. ne oldugunu bilen yok. stay tuned.</p>
-            </div>
-          </article>
-        </div>
+        <!-- Kartlar js/games.js dosyasindan otomatik uretilir -->
+        <div class="games-grid" id="gamesGrid"></div>
       </div>
     </section>
 
@@ -190,7 +147,7 @@
         </div>
         <div class="stats-grid">
           <div class="stat-box">
-            <span class="stat-number">1</span>
+            <span class="stat-number" id="statGamesCount">1</span>
             <span class="stat-label" data-i18n="about.statGames">Oyun</span>
           </div>
           <div class="stat-box">
@@ -281,6 +238,7 @@
     </div>
   </footer>
 
+  <script src="js/games.js"></script>
   <script src="js/hero-foods.js"></script>
   <script src="js/main.js"></script>
 </body>

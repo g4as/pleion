@@ -305,7 +305,8 @@ body {
   padding: 16px;
 }
 
-.game-card-img-1 {
+.game-card-img-1,
+.game-card-img--media {
   background: #1a1a2e;
   overflow: hidden;
   padding: 0;
@@ -319,7 +320,8 @@ body {
   display: block;
 }
 
-.game-card-img-1 .badge-hot {
+.game-card-img-1 .badge-hot,
+.game-card-img--media .badge-hot {
   z-index: 2;
 }
 
@@ -515,6 +517,7 @@ body {
 }
 
 @media (max-width: 900px) and (min-width: 769px) {
+  .games-grid,
   .extensions-grid {
     grid-template-columns: repeat(2, 1fr);
   }

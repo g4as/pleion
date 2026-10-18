@@ -11,12 +11,9 @@ const translations = {
     'hero.subtitle': 'az is cok laf gercek bir pleion ruhu..',
     'hero.cta': 'Oyunlara Bak',
     'games.title': 'Oyunlar',
-    'games.subtitle': 'Simdilik 1 oyun projemiz var bitirince digerlerinede baslicaz sabir biraz..',
+    'games.subtitle': 'Simdilik {n} oyun projemiz var bitirince digerlerinede baslicaz sabir biraz..',
     'games.featured': 'Yeni',
     'games.mystery': '???',
-    'games.game1.title': 'From ZeRo',
-    'games.game1.desc': 'Dusmanlar uzerine geliyor peki neden? kimin umrunda ez gec!',
-    'games.game1.blogHint': 'Dev Blog →',
     'games.game2.title': '???',
     'games.game2.desc': 'yakinda... bi sey gelio ama simdilik sus. izle.',
     'games.game3.title': '???',
@@ -40,8 +37,10 @@ const translations = {
     'footer.slogan': 'sosyal medyalarimiz',
     'footer.rights': 'tum haklar sakli.',
     'blog.back': '← Siteye Don',
-    'blog.title': 'From ZeRo Dev Blog',
-    'blog.subtitle': 'gelistirme gunlugu. ne yaptik ne bozduk hepsi burada.'
+    'blog.title': '{name} Dev Blog',
+    'blog.subtitle': 'gelistirme gunlugu. ne yaptik ne bozduk hepsi burada.',
+    'blog.empty': 'henuz yazı yok galiba...',
+    'games.blogHint': 'Dev Blog →'
   },
   en: {
     'nav.home': 'Home',
@@ -53,12 +52,9 @@ const translations = {
     'hero.subtitle': 'No game no life',
     'hero.cta': 'Check Games',
     'games.title': 'Games',
-    'games.subtitle': 'one project for now, rest comes after we ship. patience.',
+    'games.subtitle': '{n} project for now, rest comes after we ship. patience.',
     'games.featured': 'New',
     'games.mystery': '???',
-    'games.game1.title': 'From ZeRo',
-    'games.game1.desc': 'enemies rushing at you but why? who cares, crush them!',
-    'games.game1.blogHint': 'Dev Blog →',
     'games.game2.title': '???',
     'games.game2.desc': 'coming soon... something is cooking but we are not telling. watch.',
     'games.game3.title': '???',
@@ -82,22 +78,141 @@ const translations = {
     'footer.slogan': 'our socials',
     'footer.rights': 'all rights reserved.',
     'blog.back': '← Back to Site',
-    'blog.title': 'From ZeRo Dev Blog',
-    'blog.subtitle': 'dev diary. what we built, what we broke — all here.'
+    'blog.title': '{name} Dev Blog',
+    'blog.subtitle': 'dev diary. what we built, what we broke — all here.',
+    'blog.empty': 'no posts yet i guess...',
+    'games.blogHint': 'Dev Blog →'
   }
 };
 
 let currentLang = localStorage.getItem('pleion-lang') || 'tr';
 
+function catalogText(field) {
+  if (!field) return '';
+  if (typeof field === 'string') return field;
+  return field[currentLang] || field.tr || field.en || '';
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function gameBlogHref(game) {
+  if (game.blog && game.id) return `blog/index.html?id=${encodeURIComponent(game.id)}`;
+  return '';
+}
+
+function gameCardHref(game) {
+  if (game.href) return game.href;
+  return gameBlogHref(game);
+}
+
+function createGameCard(game) {
+  const title = catalogText(game.title);
+  const desc = catalogText(game.desc);
+  const featuredClass = game.featured ? ' game-card--featured' : '';
+  const featuredBadge = game.featured
+    ? `<span class="badge badge-hot">${escapeHtml(translations[currentLang]['games.featured'])}</span>`
+    : '';
+  const blogLabel = game.blogHint
+    ? catalogText(game.blogHint)
+    : (game.blog ? translations[currentLang]['games.blogHint'] : '');
+  const blogBadge = blogLabel
+    ? `<span class="badge badge-blog">${escapeHtml(blogLabel)}</span>`
+    : '';
+  const image = game.image
+    ? `<img src="${escapeHtml(game.image)}" alt="${escapeHtml(title)}" class="game-logo">`
+    : '';
+  const href = gameCardHref(game);
+
+  const article = `
+    <article class="game-card${featuredClass}">
+      <div class="game-card-img game-card-img--media">
+        ${image}
+        ${featuredBadge}
+        ${blogBadge}
+      </div>
+      <div class="game-card-body">
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(desc)}</p>
+      </div>
+    </article>
+  `;
+
+  if (href) {
+    const wrap = document.createElement('a');
+    wrap.href = href;
+    wrap.className = 'game-card-link';
+    wrap.innerHTML = article;
+    return wrap;
+  }
+
+  const wrap = document.createElement('div');
+  wrap.innerHTML = article;
+  return wrap.firstElementChild;
+}
+
+function createMysteryCard(copy, variant) {
+  const title = catalogText(copy.title);
+  const desc = catalogText(copy.desc);
+  const wrap = document.createElement('div');
+  wrap.innerHTML = `
+    <article class="game-card game-card--mystery">
+      <div class="game-card-img game-card-img-${variant}">
+        <div class="mystery-clouds" aria-hidden="true">
+          <span class="cloud cloud-1"></span>
+          <span class="cloud cloud-2"></span>
+          <span class="cloud cloud-3"></span>
+        </div>
+        <span class="badge badge-mystery">${escapeHtml(translations[currentLang]['games.mystery'])}</span>
+      </div>
+      <div class="game-card-body game-card-body--mystery">
+        <h3>${escapeHtml(title)}</h3>
+        <p>${escapeHtml(desc)}</p>
+      </div>
+    </article>
+  `;
+  return wrap.firstElementChild;
+}
+
+function renderGames() {
+  const grid = document.getElementById('gamesGrid');
+  if (!grid || typeof PLEION_GAMES === 'undefined') return;
+
+  grid.innerHTML = '';
+  PLEION_GAMES.forEach((game) => grid.appendChild(createGameCard(game)));
+
+  const mysteryCount = typeof PLEION_MYSTERY_COUNT === 'number' ? PLEION_MYSTERY_COUNT : 2;
+  const copies = typeof PLEION_MYSTERY_COPY !== 'undefined' ? PLEION_MYSTERY_COPY : [];
+  for (let i = 0; i < mysteryCount; i++) {
+    const copy = copies[i % Math.max(copies.length, 1)] || { title: '???', desc: '' };
+    grid.appendChild(createMysteryCard(copy, (i % 2) + 2));
+  }
+
+  const countEl = document.getElementById('statGamesCount');
+  if (countEl) countEl.textContent = String(PLEION_GAMES.length);
+}
+
+function interpolateI18n(key, text) {
+  if (key !== 'games.subtitle') return text;
+  const n = typeof PLEION_GAMES !== 'undefined' ? PLEION_GAMES.length : 0;
+  return text.replace('{n}', String(n));
+}
+
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('pleion-lang', lang);
   document.documentElement.lang = lang;
+  renderGames();
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[lang][key]) {
-      el.textContent = translations[lang][key];
+      el.textContent = interpolateI18n(key, translations[lang][key]);
     }
   });
 
@@ -121,6 +236,9 @@ function setLanguage(lang) {
     active.textContent = 'EN';
     inactive.textContent = 'TR';
   }
+
+  if (typeof applyBlogPage === 'function') applyBlogPage();
+  if (typeof renderCachedPosts === 'function') renderCachedPosts();
 }
 
 document.querySelector('.lang-toggle').addEventListener('click', () => {
