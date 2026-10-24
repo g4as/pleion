@@ -13,6 +13,25 @@
           "content": "-g4as"
         }
       ]
+    },
+    {
+      "date": "2026-10-24",
+      "title": "Updates on interaction system",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Well Im BACK! I have been working on Art, Systems, story and lots of things. Firstly I found a really good and free asset pack I had to modify it to suit my art but its a very good asset pack overall i will leave the link also i will add the credits to original creator when i release the game for sure. About interaction system, its pretty basic stuff compared to inventory system well there will be inventory system in the game but it will be very basic and probably No UI for inventory so basicly you will be able to carry 1 item at the moment or i wont add inventory havent decided yet. Back to interaction system i added sitting chair mechanic that red square that you see is for debuging dont mind it i also worked on lighting stuff found it pretty easy so development is going very well but project started to become a little bit complicated Im planing to make a Interaction Extension + object To make things 100times easier. Also I share more screenshots and art works at discord server so you mind checking there if ur interested. About story i dont want to spoil you but we got a FREAKINSTEIN teacher very gross disturbing science teacher I cant imageine what prime dave whould do to him :D  "
+        },
+        {
+          "type": "image",
+          "src": "https://raw.githubusercontent.com/g4as/Images/refs/heads/main/interaction.gif",
+          "alt": "No internet :D"
+        },
+        {
+          "type": "text",
+          "content": "-g4as"
+        }
+      ]
     }
   ]
 }
